@@ -30,11 +30,6 @@ class Story(models.Model):
     answer4 = models.CharField(max_length=200)
     correct = models.CharField(max_length=200)
     publish=models.DateTimeField(auto_now_add=True)
-    
-    
-
-    class Meta:
-        ordering=('-title',)
    
     
     slug = models.SlugField(max_length=255, unique=True)
