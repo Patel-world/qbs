@@ -7,6 +7,8 @@ from django.template.defaultfilters import slugify
 
 # Create your models here.
 
+def rand_slug():
+    return ''.join(random.choice(string.ascii_letters + string.digits) for _ in range(6))
 
 
 class Category(models.Model):
@@ -35,16 +37,9 @@ class Story(models.Model):
         ordering=('-title',)
    
     
-    slug = models.SlugField(null=False, unique=True)
+    slug = models.SlugField(max_length=255, unique=True)
 
-    def __str__(self):
-        return self.title
-
-    def get_absolute_url(self):
-        return reverse('story_detail', kwargs={'slug': self.slug})
-
-    def save(self, *args, **kwargs): # new
+    def save(self, *args, **kwargs):
         if not self.slug:
-            self.slug = slugify(self.title)
-        return super().save(*args, **kwargs)
-
+            self.slug = slugify(rand_slug() + "-" + self.title)
+        super(Post, self).save(*args, **kwargs)
