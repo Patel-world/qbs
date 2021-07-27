@@ -1,5 +1,8 @@
 from django.db import models
 from django.urls import  reverse
+from django.template.defaultfilters import slugify
+
+
 
 
 # Create your models here.
@@ -25,6 +28,9 @@ class Story(models.Model):
     answer4 = models.CharField(max_length=200)
     correct = models.CharField(max_length=200)
     publish=models.DateTimeField(auto_now_add=True)
+    
+    def slug(self):
+        return slugify(self.title)
     class Meta:
         ordering=('-title',)
     def __str__(self):
