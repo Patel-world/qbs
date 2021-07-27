@@ -38,6 +38,10 @@ class Question(models.Model):
    
     
     slug = models.SlugField(max_length=255, unique=True)
+    class Meta:
+        ordering=('-title',)
+    def __str__(self):
+        return self.title
 
     def save(self, *args, **kwargs):
         if not self.slug:
