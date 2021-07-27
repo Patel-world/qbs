@@ -21,7 +21,7 @@ class Category(models.Model):
     def get_absolute_url(self):
         return reverse('story:story_by_category', args=[self.slug])
 
-class Story(models.Model):
+class Question(models.Model):
     category=models.ForeignKey(Category,on_delete=models.CASCADE)
     title=models.CharField(max_length=200)
     answer1 = models.CharField(max_length=200)
@@ -42,4 +42,4 @@ class Story(models.Model):
     def save(self, *args, **kwargs):
         if not self.slug:
             self.slug = slugify(rand_slug() + "-" + self.title)
-        super(Post, self).save(*args, **kwargs)
+        super(Question, self).save(*args, **kwargs)
