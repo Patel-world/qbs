@@ -1,7 +1,8 @@
 from django.db import models
 from django.urls import  reverse
 from django.template.defaultfilters import slugify
-
+import random
+import string
 
 
 
@@ -32,7 +33,7 @@ class Story(models.Model):
     publish=models.DateTimeField(auto_now_add=True)
    
     
-    slug = models.SlugField(max_length=255, unique=True)
+    slug = models.SlugField(max_length=255, unique=True, blank=True)
     class Meta:
         ordering=('-title',)
     def __str__(self):
@@ -42,3 +43,6 @@ class Story(models.Model):
         if not self.slug:
             self.slug = slugify(rand_slug() + "-" + self.title)
         super(Story, self).save(*args, **kwargs)
+        
+    def get_absolute_url(self):
+       return reverse('story:story_detail',args=[self.slug,])
