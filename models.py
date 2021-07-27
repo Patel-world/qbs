@@ -29,12 +29,22 @@ class Story(models.Model):
     correct = models.CharField(max_length=200)
     publish=models.DateTimeField(auto_now_add=True)
     
-    def slug(self):
-        return slugify(self.title)
+    
+
     class Meta:
         ordering=('-title',)
+   
+    
+    slug = models.SlugField(null=False, unique=True)
+
     def __str__(self):
         return self.title
+
     def get_absolute_url(self):
-        return reverse('story:story_detail', kwargs={'slug': self.title})
+        return reverse('story_detail', kwargs={'slug': self.slug})
+
+    def save(self, *args, **kwargs): # new
+        if not self.slug:
+            self.slug = slugify(self.title)
+        return super().save(*args, **kwargs)
 
