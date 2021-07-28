@@ -1,0 +1,8 @@
+
+
+User-agent: *
+Allow: /
+
+Disallow: /about
+Disallow: /admin/
+Sitemap: https://www.adhyapna.com/quest/sitemap.xml
