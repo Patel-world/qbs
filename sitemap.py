@@ -3,7 +3,7 @@ from .models import Story
  
  
 class ArticleSitemap(Sitemap):
-    changefreq = "weekly"
+    changefreq = "hourly"
     priority = 0.8
     protocol = 'https'
 
