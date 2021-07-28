@@ -11,7 +11,7 @@ class ArticleSitemap(Sitemap):
         return Story.objects.all()
 
     def lastmod(self, obj):
-        return obj.article_published
+        return obj.publish
         
     def location(self,obj):
         return '/quest/%s' % (obj.slug)
