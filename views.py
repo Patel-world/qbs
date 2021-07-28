@@ -15,7 +15,7 @@ def story_list(request,category_slug=None):
                                               'story':story,
                                               })
 
-def story_detail(request,id):
+def story_detail(request,slug):
     story=get_object_or_404(Story,slug=slug)
     return render(request,'story_detail.html',{'story':story})
 
