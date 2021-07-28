@@ -24,6 +24,6 @@ def search(request):
     results=[]
     if request.method=="GET":
         query=request.GET.get('search')
-        results=Story.objects.filter(Q(title__icontains=query) | Q(answer1__icontains=query) | Q(answer2__icontains=query) | Q(answer3__icontains=query) | Q(answer4__icontains=query) | )
+        results=Story.objects.filter(Q(title__icontains=query))
     return  render(request,'search.html',{'query': query,
                                           'results': results})
