@@ -203,65 +203,52 @@
 							<!-- Sidebars overview -->
                         
 							<div class="panel panel-flat">
-                                {% for x in story %}
-                                <div class="col-md-6">
-                                    <div class="panel panel-flat">
-                                        <div class="panel-heading">
-                                            <h6 class="panel-title">{{ x.title }}<a class="heading-elements-toggle"><i class="icon-more"></i></a></h6>
-                                            <div class="heading-elements">
-                                            </div>
-                                        </div>
-                                        <div class="panel-body">
-                                            <div id="alpaca-checkbox-list" class=""><div class="form-group alpaca-field alpaca-field-checkbox alpaca-optional alpaca-edit alpaca-top alpaca-field-valid" data-alpaca-field-id="alpaca13" data-alpaca-field-path="/" data-alpaca-field-name="">
-                                                <div class="alpaca-control checkbox" name="">
-                                                    <label>
-                                                        <input type="checkbox" data-checkbox-index="0" data-checkbox-value="cookie" class="">
-                                                        {{ x.answer1 }}
-                                                    </label>
-                                                </div>
-                                                <div class="alpaca-control checkbox" name="">
-                                                    <label>
-                                                        <input type="checkbox" data-checkbox-index="1" data-checkbox-value="sandwich" class="">
-                                                        {{ x.answer2 }}
-                                                    </label>
-                                                </div>
-                                                <div class="alpaca-control checkbox" name="">
-                                                    <label>
-                                                        <input type="checkbox" data-checkbox-index="2" data-checkbox-value="chips" class="">
-                                                        {{ x.answer3 }}
-                                                    </label>
-                                                </div>
-                                                <div class="alpaca-control checkbox" name="">
-                                                    <label>
-                                                        <input type="checkbox" data-checkbox-index="3" data-checkbox-value="drink" class="">
-                                                        {{ x.answer4 }}
-                                                    </label>
-                                                </div>
-                                                </div></div>
-                                            <a href="#alpaca-checkbox-list-source" data-toggle="collapse"><i class="icon-embed2 position-left"></i> Show answer →</a>
-                                            <div class="collapse mt-10" id="alpaca-checkbox-list-source">
-                                                {{ x.correct }}
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-								<!--<div class="col-lg-3 col-sm-6">
-									<div class="thumbnail">
-										
-										<div class="caption">
-                          
-                                            <h5 class="no-margin-top text-semibold"><a href="{{ x.get_absolute_url }}">{{x.title}}</a></h5>
-                                            <h4>{{ x.answer1 }}</h4>
-                                            <h4>{{ x.answer2 }}</h4>
-                                            <h4>{{ x.answer3 }}</h4>
-                                            <h4>{{ x.answer4 }}</h4>
-										</div>
-									</div>
-								</div>-->
-                                {% endfor %}
-
-								
-							</div>
+                {% for x in story %}
+                <div class="col-md-6">                        
+                  <div class="panel panel-flat">                                        
+                    <div class="panel-heading">                                                                  
+                      <h6 class="panel-title">{{ x.title }}<a class="heading-elements-toggle"><i class="icon-more"></i></a></h6>                                            
+                      <div class="heading-elements">                                            
+                      </div>                                        
+                    </div>                                      
+                    <div class="panel-body">                                          
+                      <div id="alpaca-checkbox-list" class=""><div class="form-group alpaca-field alpaca-field-checkbox alpaca-optional alpaca-edit alpaca-top alpaca-field-valid" data-alpaca-field-id="alpaca13" data-alpaca-field-path="/" data-alpaca-field-name="">                                                
+                        <div class="alpaca-control checkbox" name="">                                                  
+                          <label>                                                        
+                            <input type="checkbox" data-checkbox-index="0" data-checkbox-value="cookie" class="">                                                        
+                            {{ x.answer1 }}                                                    
+                          </label>                                              
+                        </div>                                                
+                        <div class="alpaca-control checkbox" name="">                                                    
+                          <label>                                                        
+                            <input type="checkbox" data-checkbox-index="1" data-checkbox-value="sandwich" class="">                                                        
+                            {{ x.answer2 }}                                                    
+                          </label>                                                
+                        </div>                                                
+                        <div class="alpaca-control checkbox" name="">                                                    
+                          <label>                                                        
+                            <input type="checkbox" data-checkbox-index="2" data-checkbox-value="chips" class="">                                                        
+                            {{ x.answer3 }}                                                    
+                          </label>                                                
+                        </div>                                                
+                        <div class="alpaca-control checkbox" name="">                                                    
+                          <label>                                                        
+                            <input type="checkbox" data-checkbox-index="3" data-checkbox-value="drink" class="">                                                        
+                            {{ x.answer4 }}                                                    
+                          </label>                                                
+                        </div> 
+                        <a href="#alpaca-checkbox-list-source" data-toggle="collapse"><i class="icon-embed2 position-left"></i> Show answer →</a>                                                                                      
+                        <div class="collapse mt-10" id="alpaca-checkbox-list-source">                                                                                              
+                          {{ x.correct }}                                                                                                                            
+                        </div>                                                 
+                      </div>
+                    </div>                                                              
+                                                                      
+                  </div>                                    
+                </div>                                                
+              </div>						                                                
+              {% endfor %}								            
+            </div>
 							<!-- /sidebars overview -->
 
 
@@ -302,6 +289,9 @@
 
 									<div class="category-content">
 										<form action="{% url 'story:search' %}" method="get">
+                      <div class="form-group mb-2">
+                        <h1>{% if category %}{{ category.name }}{% else %} STORIES {% endif %}</h1>
+                      </div>
 											<div class="has-feedback has-feedback-left">
 												<input type="search" class="form-control" placeholder="Search">
 												<div class="form-control-feedback">
