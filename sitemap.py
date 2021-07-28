@@ -1,10 +1,17 @@
-class MySiteSitemap(Sitemap):
-    changfreq = 'always'
+from django.contrib.sitemaps import Sitemap
+from .models import Story
+ 
+ 
+class ArticleSitemap(Sitemap):
+    changefreq = "weekly"
+    priority = 0.8
+    protocol = 'https'
 
     def items(self):
-        return Question.objects.all()
+        return Story.objects.all()
 
-    def lastmod(self, item):
-        last_answer = Answer.objects.filter(question=item)
-        if last_answer:
-            return sorted(last_answer)[-1].date
+    def lastmod(self, obj):
+        return obj.article_published
+        
+    def location(self,obj):
+        return '/quest/%s' % (obj.slug)
