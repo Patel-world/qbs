@@ -10,10 +10,11 @@ sitemaps = {
 }
 
 urlpatterns = [
-    path('topics/', views.topics, name='topics'),
+    
      path('', views.story_list, name='story_list'),
   
      path('search/',views.search,name='search'),
+    path('topics/', views.topics, name='topics'),
      path('<slug:category_slug>', views.story_list, name='story_by_category'),
      path('<slug:slug>/', views.story_detail, name='story_detail'),
      
