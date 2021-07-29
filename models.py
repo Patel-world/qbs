@@ -24,7 +24,7 @@ class Category(models.Model):
 
 class Story(models.Model):
     category=models.ForeignKey(Category,on_delete=models.CASCADE)
-    title=models.CharField(max_length=2000)
+    title=models.TextField(max_length=2000)
     answer1 = models.CharField(max_length=200)
     answer2 = models.CharField(max_length=200)
     answer3 = models.CharField(max_length=200)
