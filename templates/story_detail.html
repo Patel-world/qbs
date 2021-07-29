@@ -1,36 +1,379 @@
-
-
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<head>
+    {% load static %}
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>{{story.title}}</title>
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <title>{{story.title}}</title>
-  </head>
-  <script>
+	<!-- Global stylesheets -->
+	<link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet" type="text/css">
+	<link href="{% static 'assets/css/icons/icomoon/styles.css' %}" rel="stylesheet" type="text/css">
+	<link href="{% static 'assets/css/bootstrap.css' %}" rel="stylesheet" type="text/css">
+	<link href="{% static 'assets/css/core.css' %}" rel="stylesheet" type="text/css">
+	<link href="{% static 'assets/css/components.css' %}" rel="stylesheet" type="text/css">
+	<link href="{% static 'assets/css/colors.css' %}" rel="stylesheet" type="text/css">
+    <link rel="shortcut icon" href="{% static 'images/favicon.png' %}">
+	<link rel="apple-touch-icon" href="{% static 'images/apple-touch-icon.png' %}">
+	<link rel="apple-touch-icon" sizes="72x72" href="{% static 'images/apple-touch-icon-72x72.png' %}">
+	<link rel="apple-touch-icon" sizes="114x114" href="{% static 'images/apple-touch-icon-114x114.png' %}">
+	<!-- /global stylesheets -->
 
+	<!-- Core JS files -->
+	<script type="text/javascript" src="{% static 'assets/js/plugins/loaders/pace.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'assets/js/core/libraries/jquery.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'assets/js/core/libraries/bootstrap.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'assets/js/plugins/loaders/blockui.min.js' %}"></script>
+	<!-- /core JS files -->
+
+
+	<!-- Theme JS files -->
+	<script type="text/javascript" src="{% static 'assets/js/plugins/forms/styling/switchery.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'assets/js/plugins/ui/prism.min.js' %}"></script>
+
+	<script type="text/javascript" src="{% static 'assets/js/core/app.js' %}"></script>
+	<script type="text/javascript" src="{% static 'assets/js/pages/sidebar_dual.js' %}"></script>
+
+	<script type="text/javascript" src="{% static 'assets/js/plugins/ui/ripple.min.js' %}"></script>
+	<!-- /theme JS files -->
+    <style>
+        .thumbnail {
+    height: 367px;
+}
+    </style>
+
+</head>
+
+<body class="sidebar-xs has-detached-right">
+
+	<!-- Main navbar -->
+	<div class="navbar navbar-inverse bg-indigo">
+		<div class="navbar-header">
+
+
+			<ul class="nav navbar-nav pull-right visible-xs-block">
+				<li><a data-toggle="collapse" data-target="#navbar-mobile"><i class="icon-tree5"></i></a></li>
+				<li><a class="sidebar-mobile-main-toggle"><i class="icon-paragraph-justify3"></i></a></li>
+				<li><a class="sidebar-mobile-detached-toggle"><i class="icon-grid7"></i></a></li>
+			</ul>
+		</div>
+
+		<div class="navbar-collapse collapse" id="navbar-mobile">
+			<ul class="nav navbar-nav">
+				<li>
+					<a class="sidebar-control sidebar-main-toggle hidden-xs" data-popup="tooltip" title="Collapse main" data-placement="bottom" data-container="body">
+						<i class="icon-paragraph-justify3"></i>
+					</a>
+				</li>
+
+				<li>
+					<a class="sidebar-control sidebar-detached-hide hidden-xs" data-popup="tooltip" title="Hide detached" data-placement="bottom" data-container="body">
+						<i class="icon-drag-right"></i>
+					</a>
+				</li>
+
+
+			</ul>
+
+			<div class="navbar-right">
+				<p class="navbar-text" id="p1">Good Morning</p>
+				<p class="navbar-text"><span class="label bg-success-400">Online</span></p>
+
+				<ul class="nav navbar-nav">
+
+
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- /main navbar -->
+
+
+	<!-- Page container -->
+	<div class="page-container">
+
+		<!-- Page content -->
+		<div class="page-content">
+
+			<!-- Main sidebar -->
+			<div class="sidebar sidebar-main sidebar-default">
+				<div class="sidebar-content">
+
+					<!-- User menu -->
+					<div class="sidebar-user-material">
+						<div class="category-content">
+							<div class="sidebar-user-material-content">
+								
+								
+							</div>
+
+							<div class="sidebar-user-material-menu">
+								<a href="#user-nav" data-toggle="collapse"><span><p class="navbar-text" id="p1">Good Morning</p></span> <i class="caret"></i></a>
+							</div>
+						</div>
+
+						<div class="navigation-wrapper collapse" id="user-nav">
+							<ul class="navigation">
+								<li><a href="#"><i class="icon-user-plus"></i> <span>My profile</span></a></li>
+
+								<li class="divider"></li>
+								<li><a href="#"><i class="icon-switch2"></i> <span>Logout</span></a></li>
+							</ul>
+						</div>
+					</div>
+					<!-- /user menu -->
+
+
+					<!-- Main navigation -->
+					<div class="sidebar-category sidebar-category-visible">
+						<div class="category-content no-padding">
+							<ul class="navigation navigation-main navigation-accordion">
+
+								<!-- Main -->
+								<li class="navigation-header"><span>Main</span> <i class="icon-menu" title="Main pages"></i></li>
+								<li><a href="#"><i class="icon-home4"></i> <span>{{ category.name }}</span></a></li>
+
+							</ul>
+						</div>
+					</div>
+					<!-- /main navigation -->
+
+				</div>
+			</div>
+			<!-- /main sidebar -->
+
+
+			<!-- Main content -->
+			<div class="content-wrapper">
+
+				<!-- Page header -->
+				<div class="page-header page-header-default">
+					<div class="page-header-content">
+						<div class="page-title">
+							<h4><i class="glyphicon glyphicon-heart-empty"></i> <span class="text-semibold"> {{ category.name }}</span></h4>
+						</div>
+
+						<div class="heading-elements">
+							<div class="heading-btn-group">
+								<a href="#" class="btn btn-link btn-float text-size-small has-text"><i class="icon-calendar5 text-primary"></i> <span>Schedule</span></a>
+							</div>
+						</div>
+					</div>
+
+					<div class="breadcrumb-line">
+						<ul class="breadcrumb">
+							<li><a href="#"><i class="icon-home2 position-left"></i> Home</a></li>
+							<li><a href="#">Topics</a></li>
+							<li class="active">{{ category.name }}</li>
+						</ul>
+
+						<ul class="breadcrumb-elements">
+							<li><a href="#"><i class="icon-comment-discussion position-left"></i> Support</a></li>
+
+
+
+							</li>
+						</ul>
+					</div>
+				</div>
+				<!-- /page header -->
+
+
+				<!-- Content area -->
+				<div class="content">
+
+					<!-- Detached content -->
+					<div class="container-detached">
+						<div class="content-detached">
+
+							<!-- Info alert -->
+							<div class="alert alert-info alert-styled-left alert-arrow-left alert-component">
+								<button type="button" class="close" data-dismiss="alert"><span>&times;</span><span class="sr-only">Close</span></button>
+								<h6 class="alert-heading text-semibold">Keep learning</h6>
+								You can get udemy courses<code>for free</code>.
+                                If you find it useful, if it save your money kindly <a href="https://www.instamojo.com/@adhyapna/l72d251b8ee264c678ebb7b18c7ee22bd/"><code>donate us</code></a> or <code><a href="https://www.instamojo.com/@adhyapna/le094f234829c4ba19eb570933a41827f/"/>Buy us coffee</code></a>
+
+                            </div>
+						    <!-- /info alert -->
+
+
+
+                        
+							<!-- Sidebars overview -->
+                        
+							<div class="panel panel-flat">
+     
+                <div class="col-md-6" style="width: -webkit-fill-available; margin-bottom: -22px;">                        
+                  <div class="panel panel-flat">                                        
+                    <div class="panel-heading">                                                                  
+                                                                  
+                      <div class="heading-elements">                                            
+                      </div>                                        
+                    </div>                                      
+                    <div class="panel-body">			
+                      <h4><i class="glyphicon glyphicon-flash"></i> <span> {{story.title}}</span></h4>
+                      <div id="alpaca-checkbox-list" class=""><div class="form-group alpaca-field alpaca-field-checkbox alpaca-optional alpaca-edit alpaca-top alpaca-field-valid" data-alpaca-field-id="alpaca13" data-alpaca-field-path="/" data-alpaca-field-name="">                                                
+                        <div class="alpaca-control checkbox" name="">                                                  
+                          <label>                                                        
+                            <input type="checkbox" data-checkbox-index="0" data-checkbox-value="cookie" class="">                                                        
+                            {{ story.answer1 }}                                                    
+                          </label>                                              
+                        </div>                                                
+                        <div class="alpaca-control checkbox" name="">                                                    
+                          <label>                                                        
+                            <input type="checkbox" data-checkbox-index="1" data-checkbox-value="sandwich" class="">                                                        
+                            {{ story.answer2 }}                                                    
+                          </label>                                                
+                        </div>                                                
+                        <div class="alpaca-control checkbox" name="">                                                    
+                          <label>                                                        
+                            <input type="checkbox" data-checkbox-index="2" data-checkbox-value="chips" class="">                                                        
+                            {{ story.answer3 }}                                                    
+                          </label>                                                
+                        </div>                                                
+                        <div class="alpaca-control checkbox" name="">                                                    
+                          <label>                                                        
+                            <input type="checkbox" data-checkbox-index="3" data-checkbox-value="drink" class="">                                                        
+                            {{ story.answer4 }}                                                    
+                          </label>                                                
+                        </div> 
+                                                                         
+                      </div>
+
+                    </div>      
+                    <a href="#{{ story.slug }}" data-toggle="collapse"><i class="icon-embed2 position-left"></i> Show answer →</a>                                                                                      
+          
+                    <div class="collapse mt-10" id="{{ story.slug }}">                                                                                              
+                        
+                      {{ story.correct }}                                                                                                                            
+                        
+                    </div>                                                        
+                                                                      
+                  </div>                                    
+                </div>                                                
+              </div>						                                                
+              {% endfor %}								            
+            </div>
+							<!-- /sidebars overview -->
+
+
+							
+
+							
+
+						</div>
+					</div>
+					<!-- /detached content -->
+
+
+					<!-- Detached sidebar -->
+					<div class="sidebar-detached">
+						<div class="sidebar sidebar-default sidebar-separate">
+							<div class="sidebar-content">
+
+								<!-- Sidebar search -->
+								<div class="sidebar-category">
+									<div class="category-title">
+										<span>Search</span>
+										<ul class="icons-list">
+											<li><a href="#" data-action="collapse"></a></li>
+										</ul>
+									</div>
+                                    
+                            <!--        <form action="{% url 'story:search' %}" class="form-inline" method="get">
+
+        <div class="form-group mb-2">
+            <h1>{% if category %}{{ category.name }}{% else %} STORIES {% endif %}</h1>
+        </div>
+        <div class="form-group mx-sm-3 mb-2">
+        <label for="" class="sr-only">search</label>
+        <input name="search" type="" class="form-control" id="" placeholder="type for search">
+        </div>
+      <button type="submit" class="btn btn-primary btn-lg mb-2">search</button>
+    </form>-->
+
+									<div class="category-content">
+										<form action="{% url 'story:search' %}" method="get">
+                     
+											<div class="has-feedback has-feedback-left">
+												<input name="search" type="search" class="form-control" placeholder="Search">
+												<div type="submit" class="form-control-feedback">
+													<i class="icon-search4 text-size-base text-muted"></i>
+												</div>
+											</div>
+										</form>
+									</div>
+								</div>
+								<!-- /sidebar search -->
+
+
+								<!-- Action buttons -->
+								<div class="sidebar-category">
+									<div class="category-title">
+										<span>Quick Link</span>
+										<ul class="icons-list">
+											<li><a href="#" data-action="collapse"></a></li>
+										</ul>
+									</div>
+
+									<div class="category-content">
+										<div class="row">
+											<div class="col-xs-6">
+												<button class="btn bg-teal-400 btn-block btn-float btn-float-lg" type="button"><i class="icon-archive"></i> <span>Library</span></button>
+												<button class="btn bg-purple-300 btn-block btn-float btn-float-lg" type="button"><i class="icon-file-text"></i> <span>Notes</span></button>
+											</div>
+											
+											<div class="col-xs-6">
+												<button class="btn bg-warning-400 btn-block btn-float btn-float-lg" type="button"><i class="icon-stats-bars"></i> <span>Quiz</span></button>
+												<button class="btn bg-blue btn-block btn-float btn-float-lg" type="button"><i class="icon-people"></i> <span>Dashboard</span></button>
+											</div>
+										</div>
+									</div>
+								</div>
+								<!-- /action buttons -->
+
+
+								<!-- Sub navigation -->
+
+
+
+							
+							</div>
+						</div>
+					</div>
+		            <!-- /detached sidebar -->
+
+
+					<!-- Footer -->
+					<div class="footer text-muted">
+						&copy; 2021. <a href="#">Adhyapna</a> 
+					</div>
+					<!-- /footer -->
+
+				</div>
+				<!-- /content area -->
+
+			</div>
+			<!-- /main content -->
+
+		</div>
+		<!-- /page content -->
+
+	</div>
+	<!-- /page container -->
+<script>
+    var today = new Date()
+var curHr = today.getHours()
+
+if (curHr < 12) {
+  document.getElementById("p1").innerHTML = "Good morning";
+} else if (curHr < 18) {
+  document.getElementById("p1").innerHTML = "Good afternoon";
+} else {
+  document.getElementById("p1").innerHTML = "Good evening";
+}
 </script>
 
-  <body>
-    <nav class="navbar navbar-dark bg-primary">
-      <span class="navbar-brand mb-0 h1 ">B learning club</span>
-    </nav>
-  <div class="container">
-    <main id = "">
-   
-    <h2 class="text-center"> {{story.title}}</h2> <hr>
-   
-  </main>
-  </div>
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-  </body>
+</body>
 </html>
