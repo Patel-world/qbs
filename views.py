@@ -15,6 +15,11 @@ def story_list(request,category_slug=None):
                                               'story':story,
                                               })
 
+def topics(request):
+    categories = Category.objects.all()
+    return render(request, 'topics.html', {'categories':categories})
+    
+
 def story_detail(request,slug):
     story=get_object_or_404(Story,slug=slug)
     return render(request,'story_detail.html',{'story':story})
