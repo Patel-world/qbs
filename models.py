@@ -35,7 +35,7 @@ class Story(models.Model):
     
     slug = models.SlugField(max_length=255, unique=True, blank=True)
     class Meta:
-        ordering=('-title',)
+        ordering=('id',)
     def __str__(self):
         return self.title
 
